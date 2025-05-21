@@ -1,0 +1,419 @@
+/* Glitch Effect */
+.glitch {
+  position: relative;
+  color: var(--text-primary);
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  clip: rect(0, 0, 0, 0);
+}
+
+.glitch:hover::before {
+  clip: rect(0, 900px, 0, 0);
+  left: 2px;
+  text-shadow: -1px 0 var(--primary-light);
+  animation: glitch-animation 3s infinite linear alternate-reverse;
+}
+
+.glitch:hover::after {
+  clip: rect(0, 900px, 0, 0);
+  left: -2px;
+  text-shadow: 1px 0 var(--accent);
+  animation: glitch-animation 2s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-animation {
+  0% {
+    clip: rect(44px, 9999px, 44px, 0);
+  }
+  5% {
+    clip: rect(66px, 9999px, 66px, 0);
+  }
+  10% {
+    clip: rect(22px, 9999px, 22px, 0);
+  }
+  15% {
+    clip: rect(58px, 9999px, 58px, 0);
+  }
+  20% {
+    clip: rect(82px, 9999px, 82px, 0);
+  }
+  25% {
+    clip: rect(30px, 9999px, 30px, 0);
+  }
+  30% {
+    clip: rect(86px, 9999px, 86px, 0);
+  }
+  35% {
+    clip: rect(10px, 9999px, 10px, 0);
+  }
+  40% {
+    clip: rect(69px, 9999px, 69px, 0);
+  }
+  45% {
+    clip: rect(93px, 9999px, 93px, 0);
+  }
+  50% {
+    clip: rect(31px, 9999px, 31px, 0);
+  }
+  55% {
+    clip: rect(73px, 9999px, 73px, 0);
+  }
+  60% {
+    clip: rect(45px, 9999px, 45px, 0);
+  }
+  65% {
+    clip: rect(6px, 9999px, 6px, 0);
+  }
+  70% {
+    clip: rect(79px, 9999px, 79px, 0);
+  }
+  75% {
+    clip: rect(23px, 9999px, 23px, 0);
+  }
+  80% {
+    clip: rect(48px, 9999px, 48px, 0);
+  }
+  85% {
+    clip: rect(37px, 9999px, 37px, 0);
+  }
+  90% {
+    clip: rect(25px, 9999px, 25px, 0);
+  }
+  95% {
+    clip: rect(56px, 9999px, 56px, 0);
+  }
+  100% {
+    clip: rect(15px, 9999px, 15px, 0);
+  }
+}
+
+/* Reveal Animation */
+.reveal {
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* For items that reveal in sequence */
+.reveal-sequence > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+.reveal-sequence.active > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Add delay to sequential items */
+.reveal-sequence.active > *:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.reveal-sequence.active > *:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+.reveal-sequence.active > *:nth-child(4) {
+  transition-delay: 0.3s;
+}
+
+.reveal-sequence.active > *:nth-child(5) {
+  transition-delay: 0.4s;
+}
+
+/* Glow Animation for Text */
+.glow-text {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.glow-text:hover {
+  text-shadow: 0 0 8px var(--primary-light);
+  color: var(--primary-light);
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(91, 33, 182, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(91, 33, 182, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(91, 33, 182, 0);
+  }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Testimonial Slider Animation */
+@keyframes slideIn {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+}
+
+.testimonial.slide-in {
+  animation: slideIn 0.5s forwards;
+}
+
+.testimonial.slide-out {
+  animation: slideOut 0.5s forwards;
+}
+
+/* Category Tab Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.category-videos.active {
+  animation: fadeIn 0.5s forwards;
+}
+
+/* Floating animation for elements */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.float {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* Shimmer effect for buttons and elements */
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    to right,
+    var(--primary-dark) 0%,
+    var(--primary) 20%,
+    var(--primary-dark) 40%,
+    var(--primary-dark) 100%
+  );
+  background-size: 200% auto;
+  animation: shimmer 2s linear infinite;
+}
+
+/* Timeline animation for Premiere Pro background */
+@keyframes timeline-scroll {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+.timeline-bg::before {
+  animation: timeline-scroll 20s linear infinite;
+}
+
+/* Video Thumbnail Pulse */
+@keyframes thumbnail-pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(91, 33, 182, 0.7);
+  }
+  
+  70% {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 10px rgba(91, 33, 182, 0);
+  }
+  
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(91, 33, 182, 0);
+  }
+}
+
+.play-button:hover {
+  animation: thumbnail-pulse 1.5s infinite;
+}
+
+/* Animated Highlight */
+@keyframes highlight-pulse {
+  0% {
+    background-size: 100% 0.2em;
+  }
+  50% {
+    background-size: 100% 0.3em;
+  }
+  100% {
+    background-size: 100% 0.2em;
+  }
+}
+
+.animated-highlight {
+  background: linear-gradient(to right, var(--primary) 0%, var(--primary-light) 100%);
+  background-repeat: no-repeat;
+  background-position: 0 88%;
+  background-size: 100% 0.2em;
+  animation: highlight-pulse 3s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.animated-highlight:hover {
+  background-size: 100% 88%;
+  color: var(--text-primary);
+}
+
+/* Video animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s forwards;
+}
+
+/* Video hover effects */
+.video-wrapper {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-wrapper:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Button pulse animation */
+@keyframes buttonPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(91, 33, 182, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(91, 33, 182, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(91, 33, 182, 0);
+  }
+}
+
+.category-button {
+  animation: buttonPulse 2s infinite;
+}
+
+/* Modal animations */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalContentSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal.active {
+  animation: modalFadeIn 0.3s forwards;
+}
+
+.modal.active .modal-content {
+  animation: modalContentSlideIn 0.4s forwards;
+}
+
+/* Staggered animation for grid items */
+.category-videos-grid .category-video-item:nth-child(1) { animation-delay: 0.05s; }
+.category-videos-grid .category-video-item:nth-child(2) { animation-delay: 0.1s; }
+.category-videos-grid .category-video-item:nth-child(3) { animation-delay: 0.15s; }
+.category-videos-grid .category-video-item:nth-child(4) { animation-delay: 0.2s; }
+.category-videos-grid .category-video-item:nth-child(5) { animation-delay: 0.25s; }
+.category-videos-grid .category-video-item:nth-child(6) { animation-delay: 0.3s; }
+.category-videos-grid .category-video-item:nth-child(7) { animation-delay: 0.35s; }
+.category-videos-grid .category-video-item:nth-child(8) { animation-delay: 0.4s; }
+
+/* Performance optimizations */
+.video-wrapper video,
+.category-video-item video {
+  will-change: transform;
+}
+
+.category-button,
+.cta-button,
+.video-item {
+  will-change: transform, box-shadow;
+}
+
+/* Reduce animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

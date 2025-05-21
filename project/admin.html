@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - SnappyFrames</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="admin-container">
+    <header class="admin-header">
+      <div class="logo">
+        <span>Snappy</span>Frames Admin
+      </div>
+      <nav class="admin-nav">
+        <a href="index.html" class="nav-link">
+          <i class="fas fa-home"></i> Back to Site
+        </a>
+      </nav>
+    </header>
+
+    <main class="admin-main">
+      <div class="admin-section">
+        <h2>Manage Videos</h2>
+        
+        <div class="admin-tabs">
+          <button class="tab-button active" data-tab="featured">Featured Work</button>
+          <button class="tab-button" data-tab="categories">Video Categories</button>
+        </div>
+
+        <div class="tab-content active" id="featured">
+          <div class="upload-section">
+            <h3>Add New Featured Video</h3>
+            <p class="upload-info">Videos will be saved to the 'y' folder and displayed in Featured Work section</p>
+            <form id="uploadFeaturedForm" class="upload-form">
+              <div class="form-group">
+                <label for="featuredTitle">Video Title</label>
+                <input type="text" id="featuredTitle" required>
+              </div>
+              <div class="form-group">
+                <label for="featuredVideo">Video File</label>
+                <input type="file" id="featuredVideo" accept="video/*" required>
+              </div>
+              <button type="submit" class="admin-button">Upload Featured Video</button>
+            </form>
+          </div>
+
+          <div class="manage-section">
+            <h3>Current Featured Videos</h3>
+            <div class="video-grid" id="featuredVideos">
+              <!-- Videos will be loaded here dynamically -->
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="categories">
+          <div class="category-selector">
+            <label for="categorySelect">Select Category</label>
+            <select id="categorySelect">
+              <option value="travel">Travel</option>
+              <option value="gym">Gym</option>
+              <option value="lifestyle">Lifestyle</option>
+              <option value="advertisement">Advertisement</option>
+              <option value="educational">Educational</option>
+            </select>
+          </div>
+
+          <div class="upload-section">
+            <h3>Add New Category Video</h3>
+            <p class="upload-info">Videos will be saved to the 'x' folder and displayed in Video Categories section</p>
+            <form id="uploadCategoryForm" class="upload-form">
+              <div class="form-group">
+                <label for="categoryTitle">Video Title</label>
+                <input type="text" id="categoryTitle" required>
+              </div>
+              <div class="form-group">
+                <label for="categoryVideo">Video File</label>
+                <input type="file" id="categoryVideo" accept="video/*" required>
+              </div>
+              <button type="submit" class="admin-button">Upload Category Video</button>
+            </form>
+          </div>
+
+          <div class="manage-section">
+            <h3>Current Category Videos</h3>
+            <div class="video-grid" id="categoryVideos">
+              <!-- Videos will be loaded here dynamically -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html> 
